@@ -1,0 +1,65 @@
+<section class=" w-full flex flex-col">
+    <div class="flex flex-col gap-6">
+        <div class="text-left 3xs:text-center flex flex-col gap-4">
+            <div class="w-full 3xs:text-center text-left leading-relaxed font-bold 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+                Our
+                <span class="text-skyBlue">Strategy</span>
+            </div>
+            <div class="text-lightGray font-normal !font-poppins leading-relaxed 5xs:text-sm 4xs:text-base 3xs:text-base 2xs:text-base xs:text-base sm:text-base 
+            lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-lg 5xl:text-lg 
+            6xl:text-lg 7xl:text-lg 8xl:text-xl 3xl:px-4 tracking-widest px-0">
+                At VERAST Information Technology, our strategy is driven by a commitment to delivering exceptional
+                information and communication technology (ICT) solutions that empower businesses to succeed in a dynamic
+                digital landscape. Our strategic approach is built on the following pillars
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
+            @for (item of strategiesList(); track $index) {
+            <div
+                class="group cursor-pointer bg-white hover:bg-lightCyan transition-colors duration-500 flex flex-col gap-0 p-4 text-center overflow-hidden border-[1.5px] border-[#4F4F64] border-opacity-[20%]">
+                <!-- Icons -->
+                <!-- <img [src]="item.imageDefault"
+                    class="block group-hover:hidden transition-opacity duration-500 m-auto  z-[20px] relative"
+                    [alt]="item.imageDefault" loading="lazy" decoding="async">
+                <img [src]="item.imageHover"
+                    class="hidden group-hover:block transition-opacity duration-500 m-auto  z-[20px] relative"
+                    [alt]="item.imageDefault" loading="lazy" decoding="async"> -->
+
+                <!-- Container for image + blue overlay -->
+                <div class="relative w-full h-auto overflow-hidden mb-6">
+                    <!-- Your Image -->
+                    <img [src]="item.imageHover" class="block m-auto object-cover z-10 relative group-hover:scale-105 transition-transform duration-500"
+                        [alt]="item.imageHover" loading="lazy" decoding="async"/>
+
+                    <!-- Blue background overlay (always visible) -->
+                    <div class="absolute inset-0 bg-royalBlue/30 group-hover:z-0 z-20"></div>
+                </div>
+                <!-- Title -->
+                <div
+                    class="text-left text-xl text-royalBlue tracking-wider font-bold xl:line-clamp-3 line-clamp-0 sm:min-h-[80px] md:min-h-[70px] lg:min-h-[60px] xl:min-h-[80px] 2xl:min-h-[80px] 3xl:min-h-[60px] 4xl:min-h-[60px] 5xl:min-h-[60px] 6xl:min-h-[60px] 7xl:min-h-[50px] relative">
+                    {{item.title}}
+                </div>
+
+                <!-- Subtitle -->
+                <!-- <div
+                    class="text-left text-base text-lightGray font-normal font-poppins xl:line-clamp-8 line-clamp-4 min-h-[80px] relative">
+                    {{item.subTitle}}
+                </div> -->
+                <div
+                    class="text-left text-base text-lightGray font-normal font-poppins relative sm:min-h-[220px] md:min-h-[180px] lg:min-h-[180px] xl:min-h-[220px] 2xl:min-h-[200px] 3xl:min-h-[180px] 4xl:min-h-[170px] 5xl:min-h-[160px] 6xl:min-h-[150px] 7xl:min-h-[140px]">
+                    {{item.subTitle}}
+                </div>
+                <div class="w-full xs:mt-0 mt-4">
+                    <!-- Default Icon -->
+                    <img src="images/strategy_arrow_default.svg" alt="default_arrow"
+                        class=" inset-0 group-hover:hidden transition-opacity duration-300 ease-in-out" />
+
+                    <!-- Hover Icon -->
+                    <img src="images/services_arrow_hover.svg" alt="hover_arrow"
+                        class=" inset-0 hidden group-hover:block transition-opacity duration-300 ease-in-out" />
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

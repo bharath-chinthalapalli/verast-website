@@ -1,0 +1,20 @@
+// .industry-card{
+//   background-color: white;
+// }
+
+// .industry-card:hover {
+//   background-image: url('images/industires_bg_hover.png');
+//    background-size: cover; 
+//    background-position: center;
+// }
+
+::ng-deep .slick-dots li button:before {
+  margin-top: 14px;
+  font-size: 12px;
+  color: gray; // default color
+  opacity: 1; // make dots fully visible
+}
+
+::ng-deep .slick-dots li.slick-active button:before {
+  color: #2CDDF3; // active dot color (orange)
+}

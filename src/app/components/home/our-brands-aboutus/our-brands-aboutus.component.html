@@ -1,0 +1,139 @@
+<section class="bg-white w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-6">
+        <div class="block sm:flex items-center">
+            <div
+                class="w-full 3xs:text-center text-left leading-relaxed font-bold 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+                Our
+                <span class="text-skyBlue">Brands</span>
+            </div>
+        </div>
+        <!-- <div class="flex flex-wrap gap-6 m-auto w-fit h-full">
+            @for (brand of brandList(); track brand) {
+          
+            <div
+                class="bg-white shadow-[0_2px_12px_rgba(2,0,136,0.12)]
+                m-auto rounded-full relative overflow-hidden group transition-all duration-700 ease-in-out 
+                aspect-square hover:aspect-auto hover:rounded-[32px] hover:scale-100 hover:bg-royalBlue/90 hover:w-96 hover:h-[520px] ">
+
+                <img [src]="brand.logo" alt="brand"
+                    class="w-full h-full object-contain p-8 transition-opacity duration-500 group-hover:opacity-20" />
+
+                <div class="absolute inset-0 flex flex-col gap-2 justify-start opacity-0 group-hover:opacity-100 
+                    transition-all duration-500 p-4">
+                    <div class="uppercase text-white font-bold text-sm text-center">{{ brand.name }}</div>
+                    <div class="text-white font-normal text-sm text-justify">{{ brand.description }}</div>
+                </div>
+            </div>
+            }
+        </div> -->
+        <!-- <div class="block sm:flex sm:flex-wrap sm:gap-6 sm:justify-center">
+            @for (brand of brandList(); track brand) {
+            <div class="bg-white shadow-[0_2px_12px_rgba(2,0,136,0.12)]
+          mx-auto sm:m-0 flex justify-center items-center rounded-full relative overflow-hidden group
+          transition-all duration-700 ease-in-out 
+          w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56
+          hover:w-80 hover:h-[500px] hover:rounded-[32px] hover:bg-royalBlue/90">
+
+              
+                <img [src]="brand.logo" alt="brand"
+                    class="w-full h-full object-contain p-8 transition-opacity duration-500 group-hover:opacity-20" />
+
+                <div class="absolute inset-0 flex flex-col gap-2 justify-start opacity-0 group-hover:opacity-100 
+            transition-opacity duration-500 p-4">
+                    <div class="uppercase text-white font-bold text-sm text-center">{{ brand.name }}</div>
+                    <div class="text-white font-normal text-sm text-justify">{{ brand.description }}</div>
+                </div>
+            </div>
+            }
+        </div> -->
+        <!-- <div class="block sm:flex sm:flex-wrap sm:gap-6 sm:justify-center">
+            @for (brand of brandList(); track brand) {
+            <div class="bg-white shadow-[0_2px_12px_rgba(2,0,136,0.12)]
+                mx-auto sm:m-0 flex flex-col justify-start items-center rounded-full relative overflow-hidden group
+                transition-all duration-700 ease-in-out 
+                w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56
+                hover:w-80 hover:min-h-[200px] hover:h-auto hover:rounded-[32px] hover:bg-royalBlue/90">
+
+                <img [src]="brand.logo" alt="brand"
+                    class="w-full h-full object-contain p-8 transition-opacity duration-500 group-hover:opacity-20" />
+
+
+                <div class="hidden group-hover:flex flex-col gap-2 opacity-100 transition-opacity duration-500 p-4">
+                    <div class="uppercase text-white font-bold text-sm text-center">{{ brand.name }}</div>
+                    <div class="text-white font-normal text-sm text-justify">{{ brand.description }}</div>
+                </div>
+            </div>
+            }
+        </div> -->
+
+        <div class="sm:inline hidden">
+            <div class="block sm:flex sm:flex-wrap gap-6 sm:justify-center ">
+                @for (brand of brandList(); track brand) {
+                <div class="bg-white shadow-[0_2px_12px_rgba(2,0,136,0.12)]
+                    mx-auto sm:m-0 flex flex-col justify-start items-center rounded-full relative overflow-hidden group
+                    transition-all duration-700 ease-in-out 
+                    w-40 h-40 sm:w-48 sm:h-48 
+                    hover:w-80 hover:min-h-[200px] hover:h-auto hover:rounded-[32px] hover:bg-royalBlue/90 sm:mt-0 mt-4">
+                    <img [src]="brand.logo" alt="brand"
+                        class="w-full h-full object-contain p-8 transition-all duration-500 group-hover:opacity-10 group-hover:absolute group-hover:inset-0 group-hover:object-contain" />
+    
+                    <div
+                        class="hidden group-hover:flex flex-col gap-2 opacity-100 transition-opacity duration-500 p-4 relative z-10">
+                        <div class="uppercase text-white font-bold text-sm text-center">{{ brand.name }}</div>
+                        <div class="text-white font-normal text-sm text-justify">{{ brand.description }}</div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="sm:hidden inline">
+            <div class="block sm:flex sm:flex-wrap gap-6 sm:justify-center">
+                @for (brand of brandList(); track brand; let i = $index) {
+                <div (click)="toggleCard(i)" class="cursor-pointer bg-white shadow-[0_2px_12px_rgba(2,0,136,0.12)]
+          mx-auto sm:m-0 flex flex-col justify-center items-center relative overflow-hidden
+          transition-all duration-500 ease-in-out sm:mt-0 mt-4" [ngClass]="brand.expanded 
+            ? 'rounded-2xl w-72 min-h-[220px] p-4' 
+            : 'rounded-full w-48 h-48 sm:w-48 sm:h-48'">
+    
+                    <!-- Background Logo -->
+                    <div class="relative w-full h-full flex items-center justify-center">
+                        <img [src]="brand.logo" alt="brand"
+                            class="object-cover w-1/2 transition-all duration-500 ease-in-out"
+                            [ngClass]="brand.expanded ? 'rounded-2xl' : 'rounded-full'" />
+                        
+                        <!-- Dark Blue Overlay (only when NOT expanded) -->
+                        <div *ngIf="!brand.expanded"
+                            class="absolute inset-0 bg-royalBlue/65 flex flex-col items-center justify-center rounded-full">
+                            <p class="text-white font-medium text-base">
+                                {{brand.name}}
+                            </p>
+                            <button
+                                class="bg-white text-royalBlue font-semibold px-4 py-1 rounded-lg text-sm hover:bg-royalBlue/80 z-10"
+                                (click)="toggleCard(i); $event.stopPropagation()">
+                                Click Here
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Expanded Content -->
+                    <div *ngIf="brand.expanded"
+                        class="flex flex-col items-center transition-all duration-500 ease-in-out mt-2">
+                        <div class="font-bold text-lg text-center">{{ brand.name }}</div>
+                        <p class="text-sm text-gray-700 text-justify mt-2">{{ brand.description }}</p>
+    
+                        <button
+                            class="mt-4 bg-royalBlue text-white font-semibold px-4 py-1 rounded-lg text-sm hover:bg-royalBlue/80"
+                            (click)="brand.expanded = false; $event.stopPropagation()">
+                            Read Less
+                        </button>
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+
+
+    </div>
+</section>

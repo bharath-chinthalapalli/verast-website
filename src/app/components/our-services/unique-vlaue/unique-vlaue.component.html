@@ -1,0 +1,56 @@
+<section>
+    <div class="flex flex-col gap-14">
+        <div class="flex justify-center m-auto">
+            <div class="flex  z-[20px] flex-col gap-2 w-full 3xs:px-[60px] px-5  3xs:text-center text-left">
+                <div class="font-normal
+                w-full leading-relaxed 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+                    Why Invest in
+                </div>
+                <div class="font-bold text-cornFlowerBlue w-full leading-relaxed 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl">VERAST Information Technology</div>
+            </div>
+            <div class="absolute -mt-5">
+                <img src="images/question_mark.png" alt="question_mark" class=" !w-24 ">
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-8 bg-moreLightCyan py-10 3xs:px-[60px] px-5">
+            <div class="w-full 3xs:text-center text-left font-bold leading-relaxed 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+                Unique
+                <span class="text-skyBlue">
+                    Value Proposition
+                </span>
+            </div>
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols0-3 sm:grid-cols-2  gap-7">
+                @for (item of uniqueCards(); track $index) {
+                <div
+                    class="group cursor-auto bg-white hover:shadow-[0px_11px_14px_rgba(2,0,136,0.06)] transition-colors duration-500 flex flex-col gap-6 p-4 text-left">
+                    <!-- Icons -->
+                    <!-- <img [src]="item.imageDefault"
+                        class="block transition-opacity duration-500 m-auto  z-[20px] w-full overflow-hidden"
+                        [alt]="item.imageDefault" loading="lazy" decoding="async">
+                    <img [src]="item.imageHover"
+                        class="hidden group-hover:block transition-opacity duration-500 m-auto  z-[20px] w-full"
+                        [alt]="item.imageDefault" loading="lazy" decoding="async"> -->
+
+                    <!-- Container for image + blue overlay -->
+                    <div class="relative w-full h-[320px] overflow-hidden">
+                        <!-- Your Image -->
+                        <img [src]="item.imageDefault" class="block m-auto w-full h-full object-cover z-10 relative group-hover:scale-105 transition-transform duration-500"
+                            [alt]="item.imageDefault" loading="lazy" decoding="async"/>
+
+                        <!-- Blue background overlay (always visible) -->
+                        <div class="absolute inset-0 bg-royalBlue/30 group-hover:z-0 z-20"></div>
+                    </div>
+
+                    <!-- Title -->
+                    <div
+                        class="text-left text-xl text-royalBlue  font-normal xl:line-clamp-4 line-clamp-0 min-h-[105px] relative">
+                        {{item.title}} <span class="font-bold group-hover:text-skyBlue">
+                            {{item.boldTitle}}</span>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

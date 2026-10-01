@@ -1,0 +1,7 @@
+/* Completely hide badge (still works) */
+::ng-deep .grecaptcha-badge {
+  visibility: hidden !important;
+}
+::ng-deep .export-spinner circle{
+    stroke: white!important;
+}

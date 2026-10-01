@@ -1,0 +1,38 @@
+<section class="bg-royalBlue w-full flex flex-col gap-12 p-12 3xs:px-[60px] px-5">
+  <div class="flex flex-col gap-6">
+    <div class="text-center flex flex-col gap-4">
+      <div
+        class="w-full 3xs:text-center text-left leading-relaxed font-bold 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-lightCyan">
+        Industries <span class="text-skyBlue">We Serve</span>
+      </div>
+    </div>
+  </div>
+  <div class="grid xl:grid-cols-3 xs:grid-cols-2 2xs:grid-cols-1 gap-8">
+    @for (industry of industriesList(); track industry) {
+    <div
+      class="relative bg-[#6384FF33] group hover:bg-aquaBlue px-4 py-7 flex flex-col gap-6 transition-colors duration-500 ease-in-out">
+
+      <!-- Hover Vector Background Image -->
+      <img [src]="industry.vectorHover" class="absolute right-4 top-4 w-32 transition-opacity duration-500"
+        [alt]="industry.imageDefault" loading="lazy" decoding="async" />
+
+      <!-- Content Flex -->
+      <div class="flex flex-col gap-6 relative z-10">
+
+        <!-- Circle Icon -->
+        <div
+          class="bg-buttonCyan group-hover:bg-white p-3 rounded-full w-14 h-14 flex items-center justify-center transition-all duration-500">
+          <img [src]="industry.imageDefault" class="w-8 h-8" [alt]="industry.imageDefault" loading="lazy"
+            decoding="async" />
+        </div>
+
+        <!-- Title -->
+        <div class="group-hover:text-royalBlue 3xs:text-2xl text-xl font-semibold tracking-wider text-lightCyan">
+          {{ industry.title }}
+        </div>
+
+      </div>
+    </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<section class="flex flex-col gap-8">
+    <!-- <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
+        <div class="lg:col-span-1 text-left lg:block flex flex-col gap-4">
+            <div
+                class="w-full leading-relaxed font-bold 5xs:text-xl 4xs:text-2xl 3xs:text-2xl 2xs:text-2xl xs:text-2xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+                What Our Client
+                <span class="text-skyBlue">Say About Us</span>
+            </div>
+            <div
+                class="font-normal font-poppins 5xs:text-xs 4xs:text-xs 3xs:text-xs 2xs:text-xs xs:text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-lg 5xl:text-lg 6xl:text-xl 7xl:text-xl 8xl:text-2xl text-lightGray">
+                Discover how our comprehensive IT infrastructure solutions, expert consulting, and dedicated outsourcing
+                services have empowered organizations to optimize operations, enhance efficiency, and drive sustainable
+                growth.
+            </div>
+            <div>
+                Stars
+            </div>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col gap-4 p-10 shadow-[0_1px_24px_rgba(0,0,0,0.16)]">
+            <div class="text-royalBlue text-lg font-poppins font-normal tracking-wider text-center">
+                Generally, I don't comment, but this time I did because I loved verast! This platform's interface is
+                highly customizable and provided my company with excellent support throughout the implementation
+                process.
+            </div>
+            <div class="flex flex-col gap-2">
+                <img src="images/testimonal_1.svg" alt="testimonal_1" class="m-auto">
+                <div>
+                    <div class="text-royalBlue text-lg font-poppins font-semibold tracking-wider text-center">John
+                        Butler</div>
+                    <div class="text-skyBlue text-base font-poppins font-normal tracking-wider text-center">Project
+                        Coordinator</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 m-auto">
+                <div class="group">
+                    <img src="images/testimonal_arrow_default.svg" alt="testimonal_arrow_default"
+                        class="group-hover:hidden  transform scale-x-[-1] cursor-pointer">
+                    <img src="images/testimonal_arrow_hover.svg" alt="testimonal_arrow_hover"
+                        class="hidden group-hover:block transform scale-x-[-1] cursor-pointer">
+                </div>
+                <div class="group">
+                    <img src="images/testimonal_arrow_default.svg" alt="testimonal_arrow_default"
+                        class="group-hover:hidden cursor-pointer">
+                    <img src="images/testimonal_arrow_hover.svg" alt="testimonal_arrow_hover"
+                        class="hidden group-hover:block cursor-pointer">
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+    <div class="flex flex-col gap-6 justify-center text-center">
+        <h2 class="sm:text-xl text-base text-royalBlue font-semibold items-center text-center m-auto flex gap-2">
+            <span class="text-base mb-1 font-medium text-skyBlue">
+                &#8212;
+            </span>
+            <span class="text-royalBlue">
+                Technology
+            </span>
+            <span class="text-skyBlue">
+                Expertise
+            </span>
+        </h2>
+        <h1 class="sm:text-[40px] text-[32px] text-textSecondary font-bold -tracking-wide">
+            Partnered with global tech leaders
+        </h1>
+    </div>
+    <!-- techology expertise -->
+    <div class="relative">
+        <!-- <div
+            class="w-full 3xs:text-center text-left leading-relaxed font-bold 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+            Technology
+            <span class="text-skyBlue">Expertise</span>
+        </div> -->
+        <div class="3xs:pt-0 pt-4">
+            <!-- Custom Arrows -->
+            <button class="arrow-btn 3xs:left-[-14px] left-[-6px]" (click)="slickModal.slickPrev()">
+                <mat-icon>west</mat-icon>
+            </button>
+            <button class="arrow-btn 3xs:right-[-14px] right-[-6px]" (click)="slickModal.slickNext()">
+                <mat-icon>east</mat-icon>
+            </button>
+            <!-- Slick Carousel w-24-->
+            <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig" class="carousel 3xs:px-16 px-2">
+                @for (logos of technologyList(); track logos) {
+                <div ngxSlickItem class="px-1">
+                    <img [src]="logos.clinetLogo" alt="Client Logo" class="!w-32 m-auto" loading="lazy" />
+                </div>
+                }
+            </ngx-slick-carousel>
+        </div>
+    </div>
+</section>

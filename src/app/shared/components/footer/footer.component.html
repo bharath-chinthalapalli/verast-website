@@ -1,0 +1,86 @@
+<section class="overflow-hidden bg-royalBlue 3xs:px-16 px-10">
+    <div class="flex flex-wrap items-start justify-between  py-8">
+        @for (item of companyArray(); track item) {
+        <div class="flex flex-col gap-4 text-white xs:mt-0 mt-4">
+            <div
+                class="font-bold items-end place-content-end text-lg lg:text-lg xl:text-lg 2xl:text-lg 3xl:text-lg 4xl:text-lg 5xl:text-xl 6xl:text-xl 7xl:text-xl 8xl:text-2xl">
+                {{item.title}}
+            </div>
+            @for (links of item.navLinks; track links) {
+            <div class="flex flex-col gap-2">
+                <a class=" font-light cursor-pointer hover:underline underline-offset-4 font-poppins text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-base 5xl:text-lg 6xl:text-lg 7xl:text-xl 8xl:text-xl"
+                    [routerLink]="links.path">
+                    {{links.link}}
+                </a>
+            </div>
+            }
+        </div>
+        }
+        @for (item of contactArray(); track item) {
+        <div class="flex flex-col gap-2 text-white xs:mt-0 mt-4">
+            <div
+                class="font-bold items-end  place-content-end text-lg lg:text-lg xl:text-lg 2xl:text-lg 3xl:text-lg 4xl:text-lg 5xl:text-xl 6xl:text-xl 7xl:text-xl 8xl:text-2xl">
+                {{item.title}}
+            </div>
+            <div class="2xs:flex block  items-start gap-2 flex-row mt-2">
+                <a target="_blank">
+                    <img src="images/location_icon.svg" alt="images/location_icon.svg" class="">
+                </a>
+                <div class="flex flex-col gap-1 4xs:mt-0 mt-2">
+                    <a target="_blank"
+                        class="font-light text-white text-nowrap font-poppins text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-base 5xl:text-lg 6xl:text-lg 7xl:text-xl 8xl:text-xl">
+                        Level 17, Office Tower World Trade  <br>
+                        Center, Hamdan Street, Abu Dhabi, <br>
+                        UAE P.O Box 3876
+                    </a>
+                </div>
+            </div>
+              <div class="2xs:flex block  items-start gap-2 flex-row mt-2">
+                <a>
+                    <img src="images/call_icon.svg" alt="call_icon" class="">
+                </a>
+                <div class="flex flex-col gap-1 4xs:mt-0 mt-2">
+                    <a>    
+                        02 654 3576
+                    </a>
+                </div>
+            </div>
+            @for (links of item.navLinks; track links) {
+            <div class="2xs:flex block  items-start gap-2 flex-row mt-2">
+                <a [href]="links.path" target="_blank">
+                    <img [src]="links.icon" [alt]="item.icon" class="">
+                </a>
+                <div class="flex flex-col gap-1 4xs:mt-0 mt-2">
+                    <a [href]="links.path" target="_blank" [ngClass]="{'underline': links.underLine}"
+                        class="font-light text-white text-nowrap font-poppins text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-base 5xl:text-lg 6xl:text-lg 7xl:text-xl 8xl:text-xl">
+                        {{links.link}}
+                    </a>
+                </div>
+            </div>
+            }
+        </div>
+        }
+        @for (item of resourcesArray(); track item) {
+        <div class="flex flex-col gap-4 text-white xs:mt-0 mt-4">
+            <div
+                class="font-bold items-end place-content-end text-lg lg:text-lg xl:text-lg 2xl:text-lg 3xl:text-lg 4xl:text-lg 5xl:text-xl 6xl:text-xl 7xl:text-xl 8xl:text-2xl">
+                {{item.title}}
+            </div>
+            @for (links of item.navLinks; track links) {
+            <div class="flex flex-col gap-2">
+                <a class=" font-light cursor-pointer hover:underline underline-offset-4 font-poppins text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-base 5xl:text-lg 6xl:text-lg 7xl:text-xl 8xl:text-xl"
+                    [routerLink]="links.path">
+                    {{links.link}}
+                </a>
+            </div>
+            }
+        </div>
+        }
+    </div>
+    <div class="5xs:flex block flex-row justify-center 3xs:text-center text-left md:items-center items-start pt-4 pb-6 m-auto gap-1 4xs:mt-0 mt-4 text-white">
+        <img src="images/copyright.svg" alt="copyright">
+        <a class="text-base font-light font-poppins items-center">
+            Copyright 2025 VERAST Information Technology, All Rights Reserved.
+        </a>
+    </div>
+</section>

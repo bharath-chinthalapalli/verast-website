@@ -1,0 +1,85 @@
+<section class="flex flex-col gap-10 py-10"
+    style="background-image: url('images/new_industries_we_serve_bg.svg'); background-size: cover; background-position: center;">
+    <div class="flex flex-col gap-6 justify-center text-center">
+        <h2 class="sm:text-xl text-base text-royalBlue font-semibold items-center text-center m-auto flex gap-2">
+            <span class="text-base mb-1 font-medium text-skyBlue">
+                &#8212;
+            </span>
+            <span class="text-royalBlue">
+                Industries We
+            </span>
+            <span class="text-skyBlue">
+                Serve
+            </span>
+        </h2>
+        <h1 class="sm:text-[40px] text-[32px] text-textSecondary font-bold -tracking-wide">
+            Solutions Tailored for Every Sector
+        </h1>
+    </div>
+    <div class="xs:block hidden">
+        <div class="flex items-center gap-6 overflow-hidden w-full pb-4">
+            <ngx-slick-carousel #slickModal="slick-carousel" class="carousel w-full" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let item of industiresList; index as i"
+                    class="group relative w-64 h-36 mx-4 overflow-hidden bg-white cursor-pointer">
+    
+                    <!-- HOVER BG with slide-in effect -->
+                    <div class="absolute inset-0 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
+                        style="background-image:url('images/industires_bg_hover.png');
+                      background-size:cover; background-position:center;">
+                    </div>
+    
+                    <!-- CONTENT -->
+                    <div class="relative z-10 flex flex-col items-center justify-center h-full">
+    
+                        <!-- ICONS (fade transition) -->
+                        <div class="relative w-8 h-8 mb-2">
+                            <img [src]="item.iconDefault" [alt]="item.title"
+                                class="absolute inset-0 w-8 h-8 transition-opacity duration-300 opacity-100 group-hover:opacity-0" />
+                            <img *ngIf="item.iconHover" [src]="item.iconHover" [alt]="item.title"
+                                class="absolute inset-0 w-8 h-8 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
+                        </div>
+    
+                        <!-- Title -->
+                        <div
+                            class="text-center font-poppins font-semibold text-xl text-textSecondary group-hover:text-white transition-colors duration-300">
+                            {{ item.title }}
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+    <div class="xs:hidden block !mr-10">
+        <div class="grid 2xs:grid-cols-2 grid-cols-1 gap-6">
+            @for (item of industiresList; track $index) {
+                <div class="group relative w-full h-36 mx-5 overflow-hidden bg-white cursor-pointer">
+    
+                    <!-- HOVER BG with slide-in effect -->
+                    <div class="absolute inset-0 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
+                        style="background-image:url('images/industires_bg_hover.png');
+                      background-size:cover; background-position:center;">
+                    </div>
+    
+                    <!-- CONTENT -->
+                    <div class="relative z-10 flex flex-col items-center justify-center h-full">
+    
+                        <!-- ICONS (fade transition) -->
+                        <div class="relative w-8 h-8 mb-2">
+                            <img [src]="item.iconDefault" [alt]="item.title"
+                                class="absolute inset-0 w-8 h-8 transition-opacity duration-300 opacity-100 group-hover:opacity-0" />
+                            <img *ngIf="item.iconHover" [src]="item.iconHover" [alt]="item.title"
+                                class="absolute inset-0 w-8 h-8 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
+                        </div>
+    
+                        <!-- Title -->
+                        <div
+                            class="text-center font-poppins font-semibold text-xl text-textSecondary group-hover:text-white transition-colors duration-300">
+                            {{ item.title }}
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>

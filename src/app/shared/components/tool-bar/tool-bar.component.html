@@ -1,0 +1,125 @@
+<header class="fixed top-0 z-[99999] w-full bg-white py-2.5" [ngClass]="{ 'shadow_header': isHomePage }">
+    <mat-toolbar class="flex flex-row items-center justify-between !w-full">
+        <div routerLink="/" class="3xs:ml-[48px] ml-2 headerMenu">
+            <img src="logo.svg" alt="logo" class="cursor-pointer w-11/12" routerLink="/">
+        </div>
+        <div class="3xs:mr-[48px] mr-2">
+            <nav
+                class="!font-montserrat text-base font-medium text-[#4F4F64] flex items-center gap-6 max-[991px]:hidden">
+                <button mat-button="outline-none" routerLink="/" routerLinkActive="nav-link--active"
+                    [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Home
+                </button>
+
+                <button mat-button="outline-none" routerLink="/aboutUs" routerLinkActive="nav-link--active"
+                    [routerLinkActiveOptions]="{ exact: true }" class=" nav-link">About Us
+                </button>
+
+                <button mat-button="outline-none" routerLink="/ourServices" routerLinkActive="nav-link--active"
+                    [routerLinkActiveOptions]="{ exact: true }" class=" nav-link">Our Services
+                </button>
+
+                <div class="relative" (mouseenter)="hoveredMenu = 'services'" (mouseleave)="hoveredMenu = ''">
+                    <button mat-button="outline-none" class="tracking-wide nav-link flex items-center gap-1">
+                        Our Brands
+                        <mat-icon class="!text-2xl -mt-2">expand_more</mat-icon>
+                    </button>
+                    <!-- large screen Dropdown -->
+                    <div class="absolute left-0 top-full mt-1 w-fit bg-white shadow-lg rounded-b-[4px]
+                                transition-all duration-200 !z-50" [ngClass]="{
+                                'opacity-100 visible': hoveredMenu === 'services',
+                                'opacity-0 invisible': hoveredMenu !== 'services'
+                        }">
+                        <ng-container *ngFor="let item of optionMenu();">
+                            <a class="menu-item group" (click)="navToBrands()"
+                                (click)="hoveredMenu = ''; hoveredItem = ''" (mouseenter)="hoveredItem = item.option"
+                                (mouseleave)="hoveredItem = ''"
+                                [ngClass]="{ 'active-item': hoveredItem === item.option }">
+                                <div class="optionText">
+                                    <span>
+                                        <div class="bg-white w-1.5 h-1.5 rounded-full group-hover:block hidden"></div>
+                                    </span> {{ item.option }}
+                                </div>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <button mat-button="outline-none" class=" nav-link" (click)="navToConsultancy()">Consultancy
+                </button>
+
+                <button mat-button="outline-none" routerLink="/contactUs" routerLinkActive="nav-link--active"
+                    [routerLinkActiveOptions]="{ exact: true }" class=" nav-link">Contact Us
+                </button>
+            </nav>
+        </div>
+        <!-- SMALL SCREEN -->
+        <div class="mobileMenu w-full">
+            <div routerLink="/" class="3xs:ml-[10px] ml-4 ">
+                <img src="logo.svg" alt="logo" class="w-full bg-cover cursor-pointer" routerLink="/">
+            </div>
+            <!-- Hamburger Menu (Only on small screens) -->
+            <div class="flex justify-end right-0 3xs:mr-[14px] mr-4">
+                <!-- <button (click)="isMobileMenuOpen = true" class="optionMenu">
+                    <mat-icon>menu</mat-icon>
+                </button> -->
+                <div (click)="isMobileMenuOpen = true" class="optionMenu">
+                    <img src="images/optionMenu.svg" alt="logo" class="w-full bg-cover cursor-pointer">
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+</header>
+<!-- Popup Side Menu -->
+<div *ngIf="isMobileMenuOpen"
+    class="fixed inset-0 bg-black bg-opacity-50 z-[99999] flex justify-end transition-all transform duration-500">
+    <div class="4xs:w-3/4 w-11/12 bg-white h-full shadow-lg p-5 flex flex-col gap-4 overflow-y-auto">
+        <!-- <button (click)="isMobileMenuOpen = false" class="self-end 3xs:mr-[48px] mr-4">
+            <mat-icon>close</mat-icon>
+        </button> -->
+        <div (click)="isMobileMenuOpen = false" class="self-end 3xs:mr-[14px] mr-4 mt-0">
+            <img src="images/closeMenu.svg" alt="logo" class="w-full bg-cover cursor-pointer">
+        </div>
+
+        <div class="px-4 pt-2 text-royalBlue font-medium text-lg">
+            <div class="my-6">
+                <a routerLink="/" (click)="isMobileMenuOpen = false">Home</a>
+            </div>
+            <div class="my-6">
+                <a routerLink="/aboutUs" (click)="isMobileMenuOpen = false">About Us</a>
+            </div>
+            <div class="my-6">
+                <a routerLink="/ourServices" (click)="isMobileMenuOpen = false">Our Services</a>
+            </div>
+            <!-- Our Brands with Submenu -->
+            <div class="my-6">
+                <button class="flex gap-1 items-center mr-[48px] " (click)="mobileServicesOpen = !mobileServicesOpen">
+                    Our Brands
+                    <mat-icon>{{ mobileServicesOpen ? 'expand_less' :
+                        'expand_more' }}</mat-icon>
+                </button>
+                <div *ngIf="mobileServicesOpen"
+                    class="ml-4 flex flex-col gap-6 font-medium text-base mt-6">
+                    <a *ngFor="let serviceItem of optionMenu()" (click)="navToBrands()" (click)="isMobileMenuOpen = false"
+                        class="flex items-center gap-2 group hover:underline hover:text-cornFlowerBlue text-royalBlue cursor-pointer">
+                        <span>
+                            <div class="group-hover:bg-cornFlowerBlue bg-royalBlue w-1.5 h-1.5 rounded-full"></div>
+                        </span>{{ serviceItem.option }}
+                    </a>
+                </div>
+            </div>
+            <div class="my-6">
+                <a (click)="navToConsultancy()" (click)="isMobileMenuOpen = false"
+                    class="cursor-pointer">Consultancy</a>
+            </div>
+            <div class="my-6">
+                <a routerLink="/contactUs" (click)="isMobileMenuOpen = false">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="md:mt-[124px] mt-28">
+    <router-outlet></router-outlet>
+</div>
+<div class="">
+    <app-footer></app-footer>
+</div>

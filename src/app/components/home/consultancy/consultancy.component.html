@@ -1,0 +1,74 @@
+<section class="w-full flex flex-col gap-4">
+    <div class="flex flex-col gap-6">
+        <div class="text-left 3xs:text-center flex flex-col gap-4">
+            <div
+                class="w-full leading-relaxed font-bold 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
+                Consultancy
+            </div>
+        </div>
+        <!-- <div
+            class="text-lightGray text-left 3xs:text-center tracking-wider font-poppins 5xs:text-sm 4xs:text-sm 3xs:text-sm 2xs:text-base xs:text-base sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-lg 5xl:text-lg 6xl:text-lg 7xl:text-lg 8xl:text-xl">
+            At VERAST, our expertise in the ITIL framework and ITIL-compliant systems allows us to deliver turnkey IT
+            management solutions aligned with global best practices. Leveraging the TOGAF framework, we also provide
+            infrastructure audits and readiness assessments to help clients strengthen their IT maturity and operational
+            efficiency.
+        </div> -->
+
+        <div class="text-lightGray font-medium text-left 3xs:text-center tracking-wider font-poppins 
+                 2xl:text-base 3xl:text-base 4xl:text-lg 5xl:text-lg 6xl:text-xl 7xl:text-xl 8xl:text-2xl">
+            <span class="font-poppins">
+                At VERAST, our expertise in the ITIL framework and ITIL-compliant systems allows us to deliver turnkey
+                IT
+                management
+                <span [ngClass]="{ 'inline': !isShowReadMore(), 'hidden': isShowReadMore() }" class="font-poppins">
+                    solutions aligned with global best practices. Leveraging the TOGAF framework, we also provide
+                    infrastructure audits and readiness assessments to help clients strengthen their IT maturity and
+                    operational
+                    efficiency.
+                </span>
+                <span
+                    class="inline-flex items-center gap-1 font-poppins font-bold underline underline-offset-4 cursor-pointer text-black"
+                    (click)="showReadAllLess()">
+                    {{ isShowReadMore() ? 'Read All' : 'Read Less' }}
+                    <mat-icon>{{ isShowReadMore() ? 'keyboard_arrow_down' :
+                        'keyboard_arrow_up' }}</mat-icon>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-7">
+        @for (item of serviceList(); track $index) {
+        <div
+            class="group gap-1 bg-moreLightCyan hover:bg-lightCyan transition-colors ease-in-out duration-600 text-center px-4 pt-6 flex flex-col h-[480px] 4xl:h-[380px]">
+            <!-- title -->
+            <div class="text-cornFlowerBlue text-xl font-bold title line-clamp-2">
+                {{item.title}}
+            </div>
+            <!-- subtitle -->
+            <div class="text-[#231F20] text-base font-poppins font-normal leading-relaxed"
+                [ngClass]="{ 'min-h-[20px] line-clamp-8': isExpanded($index), 'min-h-[10px] line-clamp-4': !isExpanded($index)  }">
+                {{item.description}}
+                <span class="text-[#231F20] text-base font-poppins font-normal leading-relaxed "
+                    [ngClass]="{ 'inline': isExpanded($index), 'hidden': !isExpanded($index)  }">
+                    {{item.additonalDescription}}
+                </span>
+            </div>
+            <div class="mt-6">
+                <a (click)="toggleCard($index)"
+                    class="inline-flex items-center gap-1 font-semibold text-base underline underline-offset-4 cursor-pointer text-royalBlue">
+                    {{ isExpanded($index) ? 'Read Less' : 'Read More' }}
+                    <mat-icon>{{ isExpanded($index) ? 'keyboard_arrow_up' :
+                        'keyboard_arrow_down' }}</mat-icon>
+                </a>
+            </div>
+            <div *ngIf="!isExpanded($index)"
+                class="bg-lightCyan w-28 h-28 rounded-full mt-8 group-hover:bg-white flex justify-center flex-col m-auto transition-all group-hover:pt-0 pt-4 duration-500 ease-in-out">
+                <span class="m-auto group-hover:-mt-2 -mb-2 transition-all duration-500 ease-in-out !delay-500">
+                    <img [src]="item.image" [alt]="item.image" class="w-3/5 m-auto">
+                </span>
+            </div>
+
+        </div>
+        }
+    </div>
+</section>

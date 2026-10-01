@@ -1,0 +1,66 @@
+<section class="flex flex-col gap-10">
+    <div class="flex flex-col gap-6 justify-center text-center">
+        <h2 class="sm:text-xl text-base text-royalBlue font-semibold items-center text-center m-auto flex gap-2">
+            <span class="text-base mb-1 font-medium text-skyBlue">
+                &#8212;
+            </span>
+            <span class="text-royalBlue">
+                Consultancy
+            </span>
+        </h2>
+        <h1 class="sm:text-[40px] text-[32px] text-textSecondary font-bold -tracking-wide">
+            Strategic IT guidance & audits
+        </h1>
+    </div>
+    <!-- <div class="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-7">
+        @for (item of consultanciesList(); track $index) {
+        <div class="relative overflow-hidden group">
+            <img [src]="item.img" [alt]="item.img" class="object-cover w-full">
+            <div class="absolute bottom-0 left-0">
+                <h1 class="text-2xl font-bold text-white p-4 group-hover:hidden">
+                    {{item.defaultTitle}}
+                </h1>
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-full bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h2 class="text-2xl font-bold mb-2 text-aquaBlue">{{item.defaultTitle}}</h2>
+                <p class="tracking-wide font-poppins text-sm font-normal">
+                    {{item.hoverTitle}}
+                </p>
+            </div>
+            <div
+                class="absolute !bottom-0 left-0 bg-black bg-opacity-70 text-white flex flex-col justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h2 class="2xl:text-xl 3xl:text-2xl font-bold mb-3 text-aquaBlue">{{item.defaultTitle}}</h2>
+                <p class="tracking-wide font-poppins text-base font-normal">
+                    {{item.hoverTitle}}
+                </p>
+            </div>
+        </div>
+        }
+    </div> -->
+    <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-7">
+        @for (item of consultanciesList(); track $index) {
+        <div class="relative overflow-hidden group">
+            <!-- Background image -->
+            <img [src]="item.img" [alt]="item.img" class="object-cover w-full h-full">
+
+            <!-- Default Title -->
+            <div class="absolute bottom-0 left-0">
+                <h1 class="5xs:text-base 4xs:text-lg 3xs:text-3xl 2xs:text-4xl xs:text-4xl lg:text-xl xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-2xl 5xl:text-3xl 6xl:text-3xl 7xl:text-4xl 8xl:text-5xl font-bold text-white p-4 group-hover:hidden">
+                    {{item.defaultTitle}}
+                </h1>
+            </div>
+
+            <!-- Hover Content -->
+            <div
+                class="absolute inset-0 bg-black bg-opacity-60 text-white flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h2 class="5xs:text-base 4xs:text-lg 3xs:text-3xl 2xs:text-4xl xs:text-4xl lg:text-xl xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-2xl 5xl:text-3xl 6xl:text-3xl 7xl:text-4xl 8xl:text-5xl font-bold mb-2 text-aquaBlue">{{item.defaultTitle}}</h2>
+                <p class="tracking-widest font-poppins 5xs:text-xs 4xs:text-base 3xs:text-xl 2xs:text-3xl xs:text-3xl sm:text-base lg:text-base xl:text-sm 2xl:text-sm 3xl:text-base 4xl:text-xl 5xl:text-xl 6xl:text-2xl 7xl:text-2xl 8xl:text-4xl font-normal">
+                    {{item.hoverTitle}}
+                </p>
+            </div>
+        </div>
+        }
+    </div>
+
+</section>

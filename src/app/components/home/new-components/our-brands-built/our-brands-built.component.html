@@ -1,0 +1,81 @@
+<section class="bg-white w-full flex flex-col gap-8">
+    <div class="text-center flex flex-col justify-center gap-5 pb-6">
+        <h2 class="sm:text-xl text-base text-royalBlue font-semibold items-center flex gap-2  justify-center">
+            <span class="text-base mb-1 font-medium text-skyBlue">
+                &#8212;
+            </span>
+            Our
+            <span class="text-skyBlue">
+                Brands
+            </span>
+        </h2>
+        <h1 class="sm:text-[40px] text-[32px] text-textSecondary font-bold ">
+            Built by Us, Trusted by Many
+        </h1>
+    </div>
+    <!-- @for (brand of brandList(); track brand) {
+    <div class="bg-moreLightCyan p-[40px]">
+        <div class="flex flex-wrap gap-6 w-full">
+            <div class="w-1/5">
+                <div class="p-10 bg-white rounded-full w-48 h-48 shadow-[0_2px_12px_rgba(99,132,255,0.25)]">
+                    <img [src]="brand.brandImage" [alt]="brand.brandImage" class="w-full">
+                </div>
+            </div>
+            @for (item of brand.subBrandList; track $index) {
+            <div class="border-r-2 border-lightGray/40 pr-4 w-1/5 flex flex-col gap-4">
+                <div class="w-20 h-20 bg-aquaBlue rounded-full flex justify-center align-middle flex-col items-center">
+                    <img [src]="item.image" [alt]="brand.image" class="w-9 h-9">
+                </div>
+                <h1 class="text-2xl font-bold text-cornFlowerBlue">
+                    {{item.title}}
+                </h1>
+                <p class="font-poppins font-normal text-lg text-textSecondary">
+                    {{item.description}}
+                </p>
+            </div>
+            }
+        </div>
+    </div>
+    } -->
+
+    @for (brand of brandList(); track brand) {
+    <div class="bg-moreLightCyan p-10">
+        <div class="flex flex-wrap items-center justify-between gap-6 w-full">
+
+            <div class="flex justify-center items-center flex-col flex-[1_1_20%] group cursor-pointer">
+                <div class="relative p-10 rounded-full w-48 h-48 shadow-[0_2px_12px_rgba(99,132,255,0.25)] 
+                            flex justify-center items-center transition-all duration-500 
+                            group-hover:bg-royalBlue group-hover:bg-opacity-95">
+
+                    <img [src]="brand.brandImage" [alt]="brand.brandImage"
+                        class="w-full h-auto transition-opacity duration-500 group-hover:opacity-25" />
+
+                    <span class="absolute text-white font-bold text-lg opacity-0 transition-opacity duration-500 
+                        group-hover:opacity-100">
+                        {{ brand.brandTitle }}
+                    </span>
+                </div>
+            </div>
+
+            @for (item of brand.subBrandList; track $index) {
+            <div class="flex-[1_1_20%] flex flex-col gap-4 px-6 pb-10 sm:pb-0 
+                    border-b sm:border-b-0 sm:border-r border-lightGray/40 
+                    last:border-b-0 sm:last:border-r-0 sm:text-left text-center">
+                <div
+                    class="sm:w-20 sm:h-20 w-14 h-14 bg-aquaBlue rounded-full flex justify-center items-center sm:m-0 m-auto">
+                    <img [src]="item.image" [alt]="item.image" class="sm:w-9 sm:h-9 w-6 h-6">
+                </div>
+
+                <h1 class="text-2xl font-bold text-cornFlowerBlue">
+                    {{ item.title }}
+                </h1>
+                <p class="font-poppins font-normal text-lg text-textSecondary">
+                    {{ item.description }}
+                </p>
+            </div>
+            }
+        </div>
+    </div>
+    }
+
+</section>

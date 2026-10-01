@@ -1,0 +1,32 @@
+// .arrow-btn {
+//   @apply absolute top-1/2 transform -translate-y-1/2 border border-black rounded-full w-10 h-10 flex items-center justify-center text-xl bg-white z-10 hover:bg-black hover:text-white transition;
+// }
+
+.arrow-btn {
+  position: absolute;
+  top: 25%;
+  transform: translateY(-40%);
+  // border: 1.5px solid #020088;
+  border-radius: 9999px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  color: #231F20;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .arrow-btn {
+    transform: translateY(-20%);
+  }
+}
+
+.arrow-btn:hover {
+  background: #020088;
+  color: white;
+}

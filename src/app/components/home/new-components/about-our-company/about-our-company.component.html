@@ -1,0 +1,73 @@
+<section>
+    <div class="lg:flex block justify-start flex-wrap  gap-14 items-start">
+        <div class="w-full xl:w-2/5 2xl:w-1/2 3xl:w-1/2 4xl:w-2/5 5xl:w-2/6 6xl:w-3/12 7xl:w-3/12 group">
+            <img src="images/about_our_company.svg" alt="about_our_company"
+                class="bg-cover delay-200 group-hover:hidden block transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-105 opacity-100 scale-100">
+            <img src="images/about_our_company_hover.svg" alt="about_our_company"
+                class="bg-cover delay-200 group-hover:block hidden transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:scale-100 scale-100  inset-0 opacity-0">
+        </div>
+       
+        <div class="lg:mt-0 mt-8 flex-grow w-full xl:w-2/5 2xl:w-2/5 3xl:w-2/5 4xl:w-1/2 5xl:w-1/2 6xl:w-1/2 7xl:w-1/2">
+            <div class="flex flex-col gap-8">
+                <div class="flex flex-col gap-6">
+                    <h2 class="sm:text-xl text-base text-royalBlue font-semibold items-center flex gap-2">
+                        <span class="text-base mb-1 font-medium text-skyBlue">
+                            &#8212;
+                        </span>
+                        About Our
+                        <span class="text-skyBlue">
+                            Company
+                        </span>
+                    </h2>
+                    <h1 class="sm:text-[40px] text-[32px] text-textSecondary font-bold -tracking-wide">
+                        Delivering reliable ICT services for every sector
+                    </h1>
+                    <p class="font-poppins font-normal text-base text-lightGray tracking-wide">
+                        VERAST Information Technology, headquartered in Abu Dhabi, is a leading provider of end-to-end
+                        ICT
+                        solutions and consultancy services. As a subsidiary of Digital Compatibility Foundation (DCF),
+                        Saudi
+                        Arabia, we deliver robust infrastructure and reliable performance across sectors.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                    @for (item of deliverList(); track $index) {
+                    <div class="flex item-center gap-3 justify-left">
+                        <div>
+                            <mat-icon class="text-skyBlue text-2xl leading-none">
+                                {{item.icon}}
+                            </mat-icon>
+                        </div>
+                        <div class="font-poppins text-base font-semibold text-textSecondary">
+                            {{item.item}}
+                        </div>
+                    </div>
+                    }
+                    <div>
+                        <p class="font-poppins font-normal text-base text-lightGray tracking-wide">
+                            24x7x365 expert support and proactive monitoring for maximum uptime. Our specialists deliver
+                            tailored solutions using the latest technologies across all major platforms. We combine
+                            onsite
+                            coordination and remote monitoring to keep your network secure and optimized. Continuous
+                            innovation and automation help you stay ahead of the curve. Trusted by industry leaders for
+                            complex network and security projects. Our services cover Network Security, LAN, WAN & SDN,
+                            Wireless, Voice & Video, and 24x7 Monitoring. Let us handle your network, so you can focus
+                            on
+                            growing your business with confidence
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <button routerLink="/aboutUs"
+                        class="rounded-none sm:w-fit w-full px-12 8xl:py-6 py-4  bg-buttonCyan text-royalBlue font-bold hover:bg-royalBlue hover:text-white transition-colors duration-500">
+                        <div
+                            class="font-bold 2xl:text-nowrap text-wrap 5xs:text-base 4xs:text-base 3xs:text-base 2xs:text-base xs:text-base md:text-base sm:text-base lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-base 5xl:text-lg 6xl:text-lg 7xl:text-2xl 8xl:text-2xl">
+                            Explore Our Journey
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

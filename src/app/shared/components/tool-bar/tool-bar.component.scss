@@ -1,0 +1,172 @@
+.childPart {
+  margin-top: 72px;
+}
+@media(max-width :602px) {
+  .childPart {
+  margin-top: 66px;
+}
+}
+.group:hover .dropdown {
+  pointer-events: auto;
+}
+
+.active-link {
+  // text-decoration: underline;
+  // text-underline-offset: 20px; 
+  // text-decoration-color: #FAAD17; 
+  // text-decoration-thickness: 4px; 
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  color: #6384FF;
+  background-color: #6384FF;
+}
+
+.contact-active {
+  color: #6384FF;
+  background-color: #6384FF;
+  color: black;
+  transition: transform 0.3s ease;
+}
+
+/* Optional CSS if using Tailwind isn't enough */
+.group:hover .dropdown {
+  pointer-events: auto;
+}
+
+mat-toolbar {
+  background-color: transparent !important;
+
+}
+
+.headerMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  display: none;
+
+  @media (max-width: 991px) {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 76px;
+  padding: 0 0px;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+  // Make it look active on hover too
+  &:hover{
+    color: #231F20;
+  }
+  &.nav-link--active {
+    color: #5BA8FF;
+  }
+  // Add the underline on both hover and active
+  //  &:hover::after,
+  // &.nav-link--active::after {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 2.5px;
+  //   width: 100%;
+  //   background-color: #5BA8FF;
+  // }
+  &:hover::after{
+    content: '';
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    height: 1.5px;
+    width: 14px;
+    background-color: #5BA8FF;
+  }
+
+  @media (max-width: 991px) {
+    width: 100%;
+    min-height: 60px;
+    text-align: center;
+  }
+}
+
+.contact_us {
+  // display: flex;
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.custom-dropdown {
+  width: 220px; // optional fixed width
+  background-color: white !important;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+.menu-item:hover .optionText,
+.menu-item.active-item .optionText {
+  transform: translateX(4px);
+}
+
+.menu-item {
+  color: #5BA8FF;
+  font-weight: 400;
+  font-size: 18px;
+  padding:12px 30px 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #d6d6d6;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item:hover,
+.menu-item.active-item {
+  background-color: #6384FF;
+  color: white;
+}
+.menu-item .icon {
+  width: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.menu-item:hover .icon,
+.menu-item.active-item .icon {
+  transform: translateX(4px);
+}
+.dropdown{
+  z-index: 9999;
+}
+.optionText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+::ng-deep .grecaptcha-badge {
+  visibility: hidden !important;
+}
+.shadow_header{
+  box-shadow: 0px 8px 8px rgba(2, 0, 136, 0.06);
+}

@@ -1,0 +1,59 @@
+<section>
+    <div class="flex flex-col gap-16">
+        <div class="flex flex-col gap-8 text-center w-full 3xs:px-[60px] px-5">
+             <div class="flex flex-wrap justify-center 3xs:text-center text-left font-bold
+            text-cornFlowerBlue w-full
+            5xs:text-[32px] 4xs:text-[32px] 3xs:text-[32px] 2xs:text-[32px] xs:text-[32px] sm:text-[32px] 
+            lg:text-[32px] xl:text-3xl 2xl:text-[40px] 2xl:!leading-10 3xl:text-[40px] 3xl:!leading-10 4xl:text-5xl 5xl:text-5xl 
+            6xl:text-5xl 6xl:!leading-10 7xl:text-5xl 7xl:!leading-[3.5rem] 8xl:text-6xl 8xl:!leading-[3.5rem]">
+                <span class="inline 8xl:!leading-10">VERAST Information Technology,&nbsp;</span>
+                <span class="text-royalBlue font-normal 3xs:w-fit w-full inline 8xl:!leading-10">Headquartered In&nbsp;</span>
+                <span class="inline text-cornFlowerBlue 3xs:w-fit w-full">Abu Dhabi,</span>
+                <span class="text-royalBlue font-normal inline 3xs:w-fit w-full">Offers Comprehensive&nbsp;</span>
+                <span class="inline text-cornFlowerBlue 3xs:w-fit w-full">ICT Solutions&nbsp;</span>
+                <span class="text-royalBlue font-normal inline 3xs:w-fit w-full">Tailored To Diverse Industries Across&nbsp;</span>
+                <span class="inline text-cornFlowerBlue 3xs:w-fit w-full">Abu Dhabi</span>
+            </div> 
+            <!-- <div class="flex flex-wrap justify-center text-center font-bold
+            text-cornFlowerBlue w-full
+            5xs:text-2xl 4xs:text-[32px] 4xs:leading-9 3xs:text-3xl 2xs:text-3xl xs:text-3xl sm:text-3xl 
+            lg:text-3xl xl:text-3xl 2xl:text-[40px] 3xl:text-[40px] 4xl:text-5xl 5xl:text-5xl 
+            6xl:text-5xl 7xl:text-5xl 8xl:text-6xl">
+                Verast Information Technology,
+                <span class="text-royalBlue font-normal">&nbsp;Headquartered In&nbsp;</span>
+                Abu Dhabi,
+                <span class="text-royalBlue font-normal w-full sm:w-auto">&nbsp;Offers Comprehensive&nbsp;</span>
+                Ict Solutions
+                <span class="block text-royalBlue font-normal w-full">
+                    Tailored To Diverse Industries Across&nbsp;
+                </span>
+                Abu Dhabi.
+            </div> -->
+
+
+            <div class="text-lightGray px-2 tracking-widest font-normal !font-poppins leading-relaxed 5xs:text-sm 4xs:text-base 3xs:text-base 2xs:text-base xs:text-base sm:text-base 
+            lg:text-base xl:text-base 2xl:text-base 3xl:text-base 4xl:text-lg 5xl:text-lg 
+            6xl:text-lg 7xl:text-lg 8xl:text-xl 3xs:text-center text-left ">
+                With deep expertise in system integration and a commitment to SLA excellence, we help businesses
+                navigate the complexities of ICT, ensuring operational efficiency and enhanced client focus
+            </div>
+        </div>
+        <div class="bg-royalBlue 3xs:py-10 py-5 3xs:px-[60px] px-5">
+            <div class="grid md:grid-cols-2 xs:grid-cols-1 gap-8">
+                @for (item of missionList(); track item) {
+                <div
+                    class="lg:flex block items-center gap-5 group hover:bg-[#6384FF]/20 transition-colors duration-500 lg:p-10 p-5">
+                    <div class="lg:w-1/2 w-full">
+                        <img [src]="item.image" [alt]="item.image" class="">
+                    </div>
+                    <div class="lg:w-1/2 w-full flex flex-col gap-5 lg:mt-0 mt-4">
+                        <div class="text-lightCyan group-hover:text-white text-[32px] font-bold">{{item.title}}</div>
+                        <div class="text-white text-base tracking-wide !font-poppins font-normal">{{item.subTitle}}
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

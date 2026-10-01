@@ -1,0 +1,11 @@
+::ng-deep .slick-dots li button:before {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #2CDDF3; // default color
+  opacity: 20%; // make dots fully visible
+}
+
+::ng-deep .slick-dots li.slick-active button:before {
+  color: #2CDDF3; // active dot color (orange)
+}
+
