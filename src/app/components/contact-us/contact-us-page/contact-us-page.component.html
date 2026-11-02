@@ -1,11 +1,11 @@
 <main class="pb-20">
     <div class="fixed z-10 w-full breadCrumb" style="box-shadow: 0px 8px 8px rgba(2, 0, 136, 0.06);">
         <div class="flex items-center gap-2 3xs:px-[60px] px-5 py-2 bg-moreLightCyan">
-            <div class="text-cornFlowerBlue text-lg font-medium cursor-pointer" routerLink="/">Home</div>
-            <mat-icon class="text-[#C2C2D1]">
+            <a class="text-cornFlowerBlue text-lg font-medium cursor-pointer" routerLink="/">Home</a>
+            <mat-icon class="text-[#C2C2D1]" aria-hidden="true">
                 navigate_next
             </mat-icon>
-            <div class="text-[#8D8D9F] text-lg font-semibold">Contact Us</div>
+            <span class="text-[#8D8D9F] text-lg font-semibold" aria-current="page">Contact Us</span>
         </div>
     </div>
     <div class="overflow-hidden pt-14">
@@ -13,14 +13,14 @@
             <div class="flex flex-col gap-14">
                 <!-- title -->
                 <div class="flex flex-col gap-2 w-full  3xs:text-center text-left">
-                    <div
+                    <h1
                         class="font-normal
                             w-full leading-relaxed 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl text-royalBlue">
                         Let's Build
-                    </div>
-                    <div
-                        class="font-bold text-cornFlowerBlue w-full leading-relaxed 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl">
-                        Something Great Together</div>
+                    <span
+                        class="block font-bold text-cornFlowerBlue w-full leading-relaxed 5xs:text-3xl 4xs:text-[32px] 3xs:text-[32px] xl:text-[32px] 2xl:text-[40px] 2xl:leading-10 3xl:text-[40px] 3xl:leading-10 4xl:text-5xl 5xl:text-5xl 6xl:text-5xl 7xl:text-5xl 8xl:text-6xl">
+                        Something Great Together</span>
+                    </h1>
                 </div>
                 <!-- card -->
                 <div class="grid xl:grid-cols-4 lg:grid-cols-2 sm:grid-cols-2  gap-0">
@@ -33,24 +33,16 @@
                         <!-- Social links overlay content -->
                         <div class="relative  z-[20px] flex flex-col items-center justify-center gap-11">
                             <div class="flex flex-col gap-2 items-center text-center">
-                                <a target="_blank" class="">
-                                    <img src="images/location_icon.png" alt="location_icon" class="w-1/4 m-auto" />
-                                </a>
+                                <img src="images/location_icon.png" alt="" aria-hidden="true" class="w-1/4 m-auto" />
                                 <div
                                     class="flex flex-col items-center text-center 4xs:mt-0 mt-2 text-white font-poppins">
                                     <div class="font-bold text-lg">
                                         Head Office Address
                                     </div>
-                                    <!-- <a target="_blank"
-                                        class="font-normal font-poppins text-nowrap text-lg">
-                                        Level 17, Office Tower World Trade <br> Center,
-                                        Hamdan Street,
-                                        Abu <br> Dhabi,
-                                        UAE
-                                        P.O Box 3876
-                                    </a> -->
-                                    <a target="_blank"
-                                        class="font-normal font-poppins text-nowrap text-lg">
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Level%2017%2C%20Office%20Tower%20World%20Trade%20Center%2C%20Hamdan%20Street%2C%20Abu%20Dhabi%2C%20UAE%20P.O.%20Box%203876"
+                                        target="_blank" rel="noopener noreferrer"
+                                        aria-label="Open Head Office address in Google Maps (opens in a new tab)"
+                                        class="font-normal font-poppins text-nowrap text-lg underline underline-offset-4">
                                         Level 17, Office Tower World <br> Trade Center,
                                         Hamdan Street, <br>
                                         Abu Dhabi,
@@ -60,31 +52,27 @@
                                 </div>
                             </div>
                             <div class="flex flex-col gap-2 items-center text-center">
-                                <a class="">
-                                    <img src="images/call_icon.png" alt="location_icon" class="w-1/4 m-auto" />
-                                </a>
+                                <img src="images/call_icon.png" alt="" aria-hidden="true" class="w-1/4 m-auto" />
                                 <div
                                     class="flex flex-col items-center text-center 4xs:mt-0 mt-2 text-white font-poppins">
                                     <div class="font-bold text-lg">
                                         Phone Number
                                     </div>
-                                    <a
-                                        class="font-normal font-poppins text-nowrap text-lg">
+                                    <a href="tel:+97126543576"
+                                        class="font-normal font-poppins text-nowrap text-lg underline underline-offset-4">
                                         02 654 3576
                                     </a>
                                 </div>
                             </div>
                             @for (link of socialLink(); track link) {
                             <div class="flex flex-col gap-2 items-center text-center">
-                                <a [href]="link.url" target="_blank" class="">
-                                    <img [src]="link.icon" alt="location_icon" class="w-1/4 m-auto" />
-                                </a>
+                                <img [src]="link.icon" alt="" aria-hidden="true" class="w-1/4 m-auto" />
                                 <div
                                     class="flex flex-col items-center text-center 4xs:mt-0 mt-2 text-white font-poppins">
                                     <div class="font-bold text-lg">
                                         {{ link.title }}
                                     </div>
-                                    <a [href]="link.url" target="_blank"
+                                    <a [href]="link.url"
                                         class="underline underline-offset-4 font-normal font-poppins text-nowrap text-lg">
                                         {{ link.content }}
                                     </a>
@@ -95,66 +83,74 @@
                     </div>
 
                     <div class="xl:col-span-3 bg-moreLightCyan 3xs:px-10 px-5 py-8">
-                        <form [formGroup]="contactFrom" class="flex flex-col gap-4" (ngSubmit)="submitContactForm()"
-                            autocomplete="off">
+                        <form [formGroup]="contactFrom" class="flex flex-col gap-4" (ngSubmit)="submitContactForm()">
+                            <p class="text-sm text-lightGray"><span aria-hidden="true">*</span> Required fields</p>
+                            <p class="sr-only" role="status" aria-live="polite" aria-atomic="true">{{ submissionAnnouncement() }}</p>
+                            <div *ngIf="submissionAnnouncement() === 'Please correct the errors in the form before sending.'"
+                                class="text-sm font-medium text-red-700">
+                                Please correct the errors in the form before sending.
+                            </div>
                             <div class="grid xl:grid-cols-2 lg:grid-cols-1 gap-7">
                                 <!-- First Name -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">First Name <span
-                                            class="text-red-500 text-base">*</span></label>
+                                    <label for="first-name" class="text-base text-lightGray font-bold">First Name <span
+                                            class="text-red-500 text-base" aria-hidden="true">*</span></label>
                                     <div>
-                                        <input formControlName="firstName" type="text" placeholder="Eg.John"
-                                            autocomplete="off"
+                                        <input id="first-name" formControlName="firstName" type="text" autocomplete="given-name" required maxlength="50" [attr.aria-invalid]="contactFrom.get('firstName')?.touched && contactFrom.get('firstName')?.invalid ? 'true' : null" [attr.aria-describedby]="contactFrom.get('firstName')?.touched && contactFrom.get('firstName')?.invalid ? 'first-name-error' : null" placeholder="Eg.John"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="first-name-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('firstName')?.touched && contactFrom.get('firstName')?.hasError('required')">
                                             First name
                                             is required</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="first-name-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('firstName')?.touched && contactFrom.get('firstName')?.hasError('pattern')">
                                             First name must contain only letters (no numbers,
                                             symbols, or
                                             start/end spaces).</p>
+                                        <p id="first-name-error" class="text-sm font-medium text-red-700" role="alert"
+                                            *ngIf="contactFrom.get('firstName')?.touched && contactFrom.get('firstName')?.hasError('maxlength')">
+                                            First name must be 50 characters or fewer.</p>
                                     </div>
                                 </div>
                                 <!-- Last Name -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Last Name <span
-                                            class="text-red-500 text-base">*</span></label>
+                                    <label for="last-name" class="text-base text-lightGray font-bold">Last Name <span
+                                            class="text-red-500 text-base" aria-hidden="true">*</span></label>
                                     <div>
-                                        <input formControlName="lastName" type="text" placeholder="Eg. Doe"
-                                            autocomplete="off"
+                                        <input id="last-name" formControlName="lastName" type="text" autocomplete="family-name" required maxlength="50" [attr.aria-invalid]="contactFrom.get('lastName')?.touched && contactFrom.get('lastName')?.invalid ? 'true' : null" [attr.aria-describedby]="contactFrom.get('lastName')?.touched && contactFrom.get('lastName')?.invalid ? 'last-name-error' : null" placeholder="Eg. Doe"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="last-name-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('lastName')?.touched && contactFrom.get('lastName')?.hasError('required')">
                                             Last name
                                             is required</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="last-name-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('lastName')?.touched && contactFrom.get('lastName')?.hasError('pattern')">
                                             Last name must contain only letters (no numbers, symbols, or start/end
                                             spaces).</p>
+                                        <p id="last-name-error" class="text-sm font-medium text-red-700" role="alert"
+                                            *ngIf="contactFrom.get('lastName')?.touched && contactFrom.get('lastName')?.hasError('maxlength')">
+                                            Last name must be 50 characters or fewer.</p>
                                     </div>
                                 </div>
                                 <!-- Email -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Email <span
-                                            class="text-red-500 text-base">*</span></label>
+                                    <label for="email" class="text-base text-lightGray font-bold">Email <span
+                                            class="text-red-500 text-base" aria-hidden="true">*</span></label>
                                     <div>
-                                        <input type="text" formControlName="email" placeholder="example@yourmail.com"
-                                            autocomplete="off"
+                                        <input id="email" type="email" formControlName="email" autocomplete="email" required [attr.aria-invalid]="contactFrom.get('email')?.touched && contactFrom.get('email')?.invalid ? 'true' : null" [attr.aria-describedby]="contactFrom.get('email')?.touched && contactFrom.get('email')?.invalid ? 'email-error' : null" placeholder="example@yourmail.com"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="email-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('email')?.touched && contactFrom.get('email')?.hasError('required')">
                                             Email is required</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="email-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('email')?.touched && contactFrom.get('email')?.hasError('pattern')">
                                             Invalid Email Format ( 'Ex:mail&#64;domain.com')</p>
                                     </div>
                                 </div>
                                 <!-- Phone -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Phone <span
-                                            class="text-red-500 text-base">*</span></label>
+                                    <label for="phone-number" class="text-base text-lightGray font-bold">Phone <span
+                                            class="text-red-500 text-base" aria-hidden="true">*</span></label>
                                     <div class="grid grid-cols-6">
                                         <div class="relative col-span-2">
                                             <!-- <select formControlName="dialCode" autocomplete="off" class="appearance-none bg-moreLightCyan focus:bg-white w-full h-12 pl-5 pr-4 rounded-l-full 
@@ -182,67 +178,35 @@
                                             </div> -->
 
                                             <div class="relative w-full">
-                                                <!-- Selected Value -->
-                                                <div class="flex items-center justify-between rounded-none px-3 py-2 cursor-pointer appearance-none bg-moreLightCyan focus:bg-white w-full h-12 pl-5 pr-4 rounded-l-none 
+                                                <label for="dial-code" class="sr-only">Country calling code</label>
+                                                <select id="dial-code" required [value]="selectedCountry?.code" (change)="onCountryChange($event)" class="flex items-center justify-between rounded-none px-3 py-2 appearance-none bg-moreLightCyan focus:bg-white w-full h-12 pl-5 pr-4 rounded-l-none
                                                         focus:border-none border border-lightGray font-poppins text-sm text-lightGray/80 
                                                          placeholder:text-lightGray/40 focus:outline-none focus:ring-2 focus:ring-skyBlue/40 
-                                                         transition-all duration-200" (click)="toggleDropdown()">
-                                                    <div class="flex items-center gap-2">
-                                                        <img [src]="selectedCountry?.flag" alt="flag" class="w-5 h-5" />
-                                                        <span class="text-sm text-lightGray">{{
-                                                            selectedCountry?.dialCode }}</span>
-                                                    </div>
-                                                    <!-- <svg class="w-4 h-4 text-lightGray " fill="none" stroke="currentColor"
-                                                        viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M19 9l-7 7-7-7" />
-                                                    </svg> -->
-                                                    <div
-                                                        class="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-lightGray">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
-                                                            viewBox="0 0 20 20" fill="currentColor">
-                                                            <path fill-rule="evenodd"
-                                                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.08z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Dropdown List -->
-                                                <div *ngIf="dropdownOpen"
-                                                    class="absolute z-10 mt-0 w-full bg-white border border-gray-200 rounded-none max-h-72 overflow-y-auto shadow-lg">
-                                                    <div *ngFor="let country of countries"
-                                                        (click)="selectCountry(country)"
-                                                        class="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 cursor-pointer">
-                                                        <img [src]="country.flag" alt="flag" class="w-5 h-5" />
-                                                        <span class="text-xs">{{ country.dialCode }}</span>
-                                                        <span class="text-xs text-gray-600 text-nowrap">({{ country.name
-                                                            }})</span>
-                                                    </div>
-                                                </div>
+                                                         transition-all duration-200">
+                                                    <option *ngFor="let country of countries" [value]="country.code">{{ country.name }} ({{ country.dialCode }})</option>
+                                                </select>
                                             </div>
 
                                         </div>
 
                                         <div class="col-span-4">
-                                            <input type="tel" placeholder="Eg. 50 123 4567" autocomplete="off"
-                                                (keypress)="allowOnlyNumbers($event)" formControlName="phoneNumber"
+                                            <input id="phone-number" type="tel" placeholder="Eg. 50 123 4567" autocomplete="tel-national" inputmode="tel" required formControlName="phoneNumber" [attr.aria-invalid]="contactFrom.get('phoneNumber')?.touched && contactFrom.get('phoneNumber')?.invalid ? 'true' : null" [attr.aria-describedby]="contactFrom.get('phoneNumber')?.touched && contactFrom.get('phoneNumber')?.invalid ? 'phone-error' : null"
                                                 class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-r-none border border-lightGray 
                                             placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none 
                                             focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
                                         </div>
                                     </div>
                                     <div class="-mt-1">
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="phone-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('phoneNumber')?.touched && contactFrom.get('phoneNumber')?.hasError('required')">
                                             Phone number is required</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="phone-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('phoneNumber')?.touched && contactFrom.get('phoneNumber')?.hasError('minlength')">
                                             Minimum 4 digits required</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="phone-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('phoneNumber')?.touched && contactFrom.get('phoneNumber')?.hasError('pattern')">
                                             Invalid Phone Number Formate</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="phone-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('phoneNumber')?.touched && contactFrom.get('phoneNumber')?.hasError('maxlength')">
                                             Maximum 17 digits required</p>
                                     </div>
@@ -250,10 +214,10 @@
 
                                 <!-- Address -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Address</label>
+                                    <label for="address" class="text-base text-lightGray font-bold">Address</label>
                                     <div>
-                                        <input type="text" formControlName="address" placeholder="Enter street address"
-                                            autocomplete="off"
+                                        <input id="address" type="text" formControlName="address" placeholder="Enter street address"
+                                            autocomplete="street-address"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
                                         <p class="text-sm font-normal text-red-500"
                                             *ngIf="contactFrom.get('address')?.touched && contactFrom.get('address')?.hasError('required')">
@@ -263,10 +227,10 @@
                                 </div>
                                 <!-- City Name -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">City Name</label>
+                                    <label for="city" class="text-base text-lightGray font-bold">City Name</label>
                                     <div>
-                                        <input type="text" formControlName="city" placeholder="Enter city name"
-                                            autocomplete="off"
+                                        <input id="city" type="text" formControlName="city" placeholder="Enter city name"
+                                            autocomplete="address-level2"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
                                         <p class="text-sm font-normal text-red-500"
                                             *ngIf="contactFrom.get('city')?.touched && contactFrom.get('city')?.hasError('required')">
@@ -276,10 +240,10 @@
                                 </div>
                                 <!-- Region -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Region</label>
+                                    <label for="region" class="text-base text-lightGray font-bold">Region</label>
                                     <div>
-                                        <input type="text" formControlName="region" placeholder="Enter region"
-                                            autocomplete="off"
+                                        <input id="region" type="text" formControlName="region" placeholder="Enter region"
+                                            autocomplete="address-level1"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
                                         <p class="text-sm font-normal text-red-500"
                                             *ngIf="contactFrom.get('region')?.touched && contactFrom.get('region')?.hasError('required')">
@@ -289,10 +253,10 @@
                                 </div>
                                 <!-- Postal/Zip Code -->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Postal/Zip Code</label>
+                                    <label for="postal-code" class="text-base text-lightGray font-bold">Postal/Zip Code</label>
                                     <div>
-                                        <input type="text" formControlName="postalCode" (keypress)="allowOnlyNumbers($event)"
-                                            placeholder="Enter postal/zip code" autocomplete="off"
+                                        <input id="postal-code" type="text" formControlName="postalCode"
+                                            placeholder="Enter postal/zip code" autocomplete="postal-code"
                                             class="px-4 focus:bg-white bg-moreLightCyan w-full h-12 rounded-none border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200">
                                         <p class="text-sm font-normal text-red-500"
                                             *ngIf="contactFrom.get('postalCode')?.touched && contactFrom.get('postalCode')?.hasError('required')">
@@ -302,12 +266,12 @@
                                 </div>
                                 <!-- Country-->
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-base text-lightGray font-bold">Country</label>
+                                    <label for="country" class="text-base text-lightGray font-bold">Country</label>
                                     <div class="relative">
-                                        <select formControlName="country" class="appearance-none bg-moreLightCyan focus:bg-white w-full h-12 pl-5 pr-4 rounded-none 
+                                        <select id="country" formControlName="country" autocomplete="country-name" class="appearance-none bg-moreLightCyan focus:bg-white w-full h-12 pl-5 pr-4 rounded-none
                                                 focus:border-none border border-lightGray font-poppins text-sm text-lightGray/80 
                                                 placeholder:text-lightGray/40 focus:outline-none focus:ring-2 focus:ring-skyBlue/40 
-                                                transition-all duration-200" autocomplete="off">
+                                                transition-all duration-200">
                                             <option disabled selected value="">Select</option>
                                             <option *ngFor="let country of countries" [value]="country.name">
                                                 {{ country.name }}
@@ -326,26 +290,26 @@
                                     </div>
                                     <p class="text-sm font-normal text-red-500"
                                         *ngIf="contactFrom.get('country')?.touched && contactFrom.get('country')?.hasError('required')">
-                                        Last name
+                                        Country
                                         is required</p>
                                 </div>
 
                                 <!-- Message -->
                                 <div class="flex flex-col gap-2 xl:col-span-2">
-                                    <label class="text-base text-lightGray font-bold">Message <span
-                                            class="text-red-500 text-base">*</span></label>
+                                    <label for="message" class="text-base text-lightGray font-bold">Message <span
+                                            class="text-red-500 text-base" aria-hidden="true">*</span></label>
                                     <div>
-                                        <textarea formControlName="message" autocomplete="off"
+                                        <textarea id="message" formControlName="message" required maxlength="500" [attr.aria-invalid]="contactFrom.get('message')?.touched && contactFrom.get('message')?.invalid ? 'true' : null" [attr.aria-describedby]="contactFrom.get('message')?.touched && contactFrom.get('message')?.invalid ? 'message-error' : null"
                                             class="px-4 focus:bg-white bg-moreLightCyan pt-4 w-full rounded-none h-24 border border-lightGray placeholder:text-lightGray/40 font-poppins text-sm focus:outline-none focus:border-skyBlue focus:border-none focus:ring-2 focus:ring-skyBlue/40 transition-all duration-200"
                                             placeholder="Type your message here..."></textarea>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="message-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('message')?.touched && contactFrom.get('message')?.hasError('required')">
                                             Message is required</p>
-                                        <p class="text-sm font-medium text-red-500"
+                                        <p id="message-error" class="text-sm font-medium text-red-700" role="alert"
                                             *ngIf="contactFrom.get('message')?.touched && contactFrom.get('message')?.hasError('maxlength')">
-                                            Minimum 500 characters required</p>
-                                        <p *ngIf="contactFrom.get('message')?.hasError('pattern') && contactFrom.get('message')?.touched"
-                                            class="text-red-500 text-sm">
+                                            Maximum 500 characters allowed</p>
+                                        <p id="message-error" *ngIf="contactFrom.get('message')?.hasError('pattern') && contactFrom.get('message')?.touched"
+                                            role="alert" class="text-red-700 text-sm">
                                             Space is not allowed at the beginning/end of the message
                                         </p>
                                     </div>
@@ -373,13 +337,15 @@
                                             Send Message
                                         </span>
                                     </button>  -->
-                                    <button type="submit" [disabled]="contactFrom.invalid || isLoading()" [ngClass]="{
-                                            'cursor-not-allowed bg-[#A0A3D4]': contactFrom.invalid || isLoading(),
-                                            'cursor-pointer !bg-royalBlue': contactFrom.valid && !isLoading()
+                                    <button type="submit" [disabled]="isLoading()" [ngClass]="{
+                                            'bg-[#A0A3D4]': contactFrom.invalid || isLoading(),
+                                            'cursor-not-allowed': isLoading(),
+                                            'cursor-pointer': !isLoading(),
+                                            '!bg-royalBlue': contactFrom.valid && !isLoading()
                                             }"
                                         class="mt-4 justify-center flex items-center gap-4 border 8xl:px-14 px-16 8xl:py-6 py-4 font-medium transition-colors rounded-none w-full h-12">
                                         <ng-container *ngIf="isLoading()">
-                                            <mat-spinner diameter="18" strokeWidth="2"
+                                            <mat-spinner aria-hidden="true" diameter="18" strokeWidth="2"
                                                 class="export-spinner"></mat-spinner>
                                         </ng-container>
                                         <span

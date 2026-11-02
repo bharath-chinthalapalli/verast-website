@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
@@ -7,7 +7,6 @@ import { RecaptchaFormsModule, RecaptchaModule, RecaptchaV3Module, ReCaptchaV3Se
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterLink } from '@angular/router';
 import { VerastService } from '../../../services/verast.service';
-import { ContactUs } from '../../../modals/verast';
 
 @Component({
   selector: 'app-contact-us-page',
@@ -17,13 +16,11 @@ import { ContactUs } from '../../../modals/verast';
 })
 export class ContactUsPageComponent implements OnInit {
   isLoading = signal<boolean>(false);
-  countryFilter = '';
-  // selectedCountry: any = '+971';
   countries: any[] = [];
   selectedCountry: any;
   captchaVerified = false;
   captchaToken: string | null = null;
-  dropdownOpen = false;
+  submissionAnnouncement = signal('');
 
   private _fb = inject(FormBuilder);
   private readonly _snackBar = inject(MatSnackBar);
@@ -36,7 +33,7 @@ export class ContactUsPageComponent implements OnInit {
       title: "Email Address",
       icon: "images/mail_icon.png",
       content: "sales@verast.io",
-      url: "sales@verast.io",
+      url: "mailto:sales@verast.io",
     },
   ]);
 
@@ -164,20 +161,7 @@ export class ContactUsPageComponent implements OnInit {
       { name: 'Zimbabwe', dialCode: '+263', code: 'ZW', flag: 'images/flags/zw.svg' },
     ];
 
-    this.selectedCountry = this.countries[91]; // UAE default
-
-    this.contactFrom.get('dialCode')?.valueChanges.subscribe(code => {
-      // If needed, find full country info:
-      const country = this.countries.find(c => c.dialCode === code);
-    });
-  }
-
-  allowOnlyNumbers(event: KeyboardEvent) {
-    const charCode = event.which ? event.which : event.keyCode;
-    // Allow only digits (0–9)
-    if (charCode < 48 || charCode > 57) {
-      event.preventDefault();
-    }
+    this.selectedCountry = this.countries.find(country => country.code === 'AE');
   }
 
   get fullPhoneNumber(): string {
@@ -185,43 +169,6 @@ export class ContactUsPageComponent implements OnInit {
     const number = this.contactFrom.get('phoneNumber')?.value || '';
     return dialCode + number;
   }
-
-  filteredCountries() {
-    const filter = this.countryFilter.toLowerCase();
-    return this.countries.filter(c =>
-      c.name.toLowerCase().includes(filter) ||
-      c.dialCode.includes(filter)
-    );
-  }
-
-  getSelectedCountry() {
-    const code = this.contactFrom.get('dialCode')?.value;
-    return this.filteredCountries().find(c => c.dialCode === code);
-  }
-
-  compareDialCode = (a: any, b: any) => a === b;
-
-  onPhoneKeyDown(event: KeyboardEvent) {
-    const allowed = [
-      'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'
-    ];
-    // Allow navigation and deletion keys
-    if (allowed.includes(event.key)) return;
-
-    // Allow digits 0–9
-    if (!/^[0-9]$/.test(event.key)) {
-      event.preventDefault(); // Block non-digit keystrokes
-    }
-  }
-
-  onPhonePaste(event: ClipboardEvent) {
-    const paste = event.clipboardData?.getData('text') ?? '';
-    // If paste contains any non-digit characters, block it
-    if (!/^[0-9]+$/.test(paste)) {
-      event.preventDefault();
-    }
-  }
-
 
   // submitContactForm() {
   //   if (this.contactFrom.invalid) {
@@ -245,34 +192,17 @@ export class ContactUsPageComponent implements OnInit {
   //   });
   // , phoneNumber: this.fullPhoneNumber}
 
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-  }
-
-  selectCountry(country: any) {
-    this.selectedCountry = country;
-    this.dropdownOpen = false;
-  }
-
-  @HostListener('document:click', ['$event'])
-  handleClick(event: Event) {
-    if (this.dropdownOpen && !this.eRef.nativeElement.contains(event.target)) {
-      this.dropdownOpen = false;
-    }
-  }
-
-  @HostListener('window:scroll')
-  handleScroll() {
-    if (this.dropdownOpen) {
-      this.dropdownOpen = false;
-    }
-  }
   submitContactForm() {
     if (this.contactFrom.invalid) {
       this.contactFrom.markAllAsTouched();
+      this.submissionAnnouncement.set('Please correct the errors in the form before sending.');
+      setTimeout(() => {
+        this.eRef.nativeElement.querySelector('[aria-invalid="true"]')?.focus();
+      });
       return;
     }
 
+    this.submissionAnnouncement.set('Sending your message.');
     this.isLoading.set(true);
     this._recaptchaV3Service.execute('submit_demo').subscribe({
       next: token => {
@@ -282,26 +212,42 @@ export class ContactUsPageComponent implements OnInit {
         this._verastService.getContactUs(payload).subscribe({
           next: res => {
             this.isLoading.set(false);
-            this._snackBar.open(res.message || 'Request sent successfully!', 'OK', { duration: 4000 });
+            const message = res.message || 'Request sent successfully!';
+            this.submissionAnnouncement.set(message);
+            this._snackBar.open(message, 'OK', { duration: 4000 });
 
             this.contactFrom.reset({
               dialCode: '+971',
               country: 'United Arab Emirates',
               phoneNumber: ''
             });
+            this.selectedCountry = this.countries.find(country => country.code === 'AE');
             // this.selectedCountry = this.countries.find(c => c.dialCode === '+971');
           },
           error: err => {
             this.isLoading.set(false);
-            this._snackBar.open(err.error.message || 'Something went wrong', 'OK', { duration: 3000 });
+            const message = err.error?.message || 'Something went wrong. Please try again.';
+            this.submissionAnnouncement.set(message);
+            this._snackBar.open(message, 'OK', { duration: 3000 });
           }
         });
       },
       error: () => {
         this.isLoading.set(false);
-        this._snackBar.open('reCAPTCHA failed. Please try again.', 'OK', { duration: 3000 });
+        const message = 'reCAPTCHA failed. Please try again.';
+        this.submissionAnnouncement.set(message);
+        this._snackBar.open(message, 'OK', { duration: 3000 });
       }
     });
+  }
+
+  onCountryChange(event: Event) {
+    const countryCode = (event.target as HTMLSelectElement).value;
+    const country = this.countries.find(item => item.code === countryCode);
+    if (!country) return;
+
+    this.selectedCountry = country;
+    this.contactFrom.patchValue({ dialCode: country.dialCode });
   }
 
   // submitContactForm() {
